@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Estado } from './../entities/producto.entity';
+// import { Estado } from './../entities/producto.entity';
 export class CreateProductoDto {
 
     readonly codigo_producto:number;
@@ -14,7 +14,7 @@ export class CreateProductoDto {
 
     readonly imagen:string;
 
-    readonly estado:Estado;
+    readonly estado:string;
 
 
     

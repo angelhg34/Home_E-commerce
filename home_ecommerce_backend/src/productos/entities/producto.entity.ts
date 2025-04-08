@@ -14,10 +14,10 @@ export class Producto {
     @PrimaryGeneratedColumn()
     codigo_producto
 
-    @Column('varchar',{length:20})
+    @Column('varchar',{length:255})
     nombre
 
-    @Column('varchar',{length:20})
+    @Column('varchar',{length:255})
     descripcion
 
     @Column('int')
@@ -29,8 +29,12 @@ export class Producto {
     @Column('varchar',{length:255})
     imagen
 
-    @Column({ type: 'enum', enum: Estado, default: Estado.Disponible })
-    estado: Estado;
+    @Column({name:'estado'
+        ,type:"enum",
+        enum:[ 'Disponible',
+            'Agotado',
+            'Descontinuado']})
+    estado
 }
 
 
