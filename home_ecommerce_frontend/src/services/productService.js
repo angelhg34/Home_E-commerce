@@ -11,3 +11,9 @@ export const postProduct = async (producto) =>{
     const response= await axios.post(API_URL,producto);
     return response.data;
 }
+
+export const updateProduct = async (id,productoActualizado) =>{
+    const response = await axios.patch(`${API_URL}/${id}`,productoActualizado);
+    return response.data;
+
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProductosForm from '../components/ProductosForm';
-import {postProduct, getProducts} from '../services/productService.js'
+import {postProduct, getProducts, updateProduct} from '../services/productService.js'
 import CardProduct from '../components/CardProduct.tsx';
 import Header from '../components/Header.tsx';
 
@@ -32,6 +32,19 @@ const HomeProducts = () =>{
         }
     }
 
+    const handleEditar = async (codigo_producto,productoActualizado) =>{
+      try{
+        await updateProduct(codigo_producto,productoActualizado)
+        const data = await getProducts()
+        setProductos(data)
+        alert('Producto actualizado correctamente')
+      }
+      catch (error){
+        alert('Error al editar producto')
+        console.error(error)
+      }
+    }
+
     return (
         <>
         <Header/><br/>
@@ -42,7 +55,7 @@ const HomeProducts = () =>{
             <div className="col-span-3 row-span-5 col-start-3">
               <div className="grid grid-cols-2 gap-4">
                 {productos.map((producto, index) => (
-                  <CardProduct key={index} producto={producto} />
+                  <CardProduct key={index} producto={producto} onEditar={handleEditar}/>
                 ))}
               </div>
             </div>
