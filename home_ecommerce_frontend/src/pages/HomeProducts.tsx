@@ -1,3 +1,4 @@
+import '../App.css'
 import { useEffect, useState } from 'react';
 import ProductosForm from '../components/ProductosForm';
 import {postProduct, getProducts, updateProduct} from '../services/productService.js'
